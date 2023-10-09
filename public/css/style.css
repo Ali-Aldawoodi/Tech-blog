@@ -1,0 +1,22 @@
+* {
+    background-color: lightblue;
+}
+
+.blogpost-card {
+    border: solid;
+    margin: 5%;
+}
+
+.title {
+    border: solid 2px;
+}
+
+.content {
+    color: white;
+}
+
+.date {
+    color: blue;
+    text-decoration: overline;
+    padding-top: 2%;
+}

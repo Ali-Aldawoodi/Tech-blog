@@ -1,10 +1,28 @@
+
 <div>
     <div>
         <nav>
-            <a href="/controllers/homepageRoutes.js">Homepage</a>
+            <a href="/">Homepage</a>
             <a href="/dashboard">Dashboard</a>
-            <a href="/login">Login</a>
             <a href="/logout">Logout</a>
         </nav>
     </div>
+
+   {{#each blogPosts as |blogPost|}}
+    <div class="blogpost-card"> 
+
+        <div class="title">
+        {{blogPost.title}}
+        </div>
+
+        <div class="content">
+        {{blogPost.content}}
+        </div>
+
+        <div class="date">
+        {{blogPost.date_created}}
+        </div>
+    </div>
+    {{/each}}
+
 </div>

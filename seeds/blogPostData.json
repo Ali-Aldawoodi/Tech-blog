@@ -6,14 +6,14 @@
     "date_create": "09/02/2013"
 },
 {
-    "title": "Music Near Me",
-    "content": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+    "title": "Picture App",
+    "content": "I am working on an app that takes in all the gps locations that you have been to over the last week (the snapshot is every 10 hours) and draws a picture with your coordinates! Any thoughts on possible apis I can use?",
     "name": "Coolguy132",
     "date_create": "06/20/2022"
 },
 {
-    "title": "Music Near Me",
-    "content": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+    "title": "Github Issues!!",
+    "content": "Github issues will be the death of me! How exactly is it that I spend more time on git than my code? Thats rhetorical... your get the gist.",
     "name": "himothy333",
     "date_create": "11/01/22"
 }
