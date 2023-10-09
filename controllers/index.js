@@ -6,4 +6,4 @@ const homepageRoutes = require('./homepageRoutes')
 router.use('/', homepageRoutes);
 router.use('/api', apiRoutes)
 
-module.exports. router;
+module.exports = router;
