@@ -1,26 +1,34 @@
-
 <div>
     <div>
         <nav>
+            {{#if logged_in}}
             <a href="/">Homepage</a>
+            <button class="no-button" id="logout">logout</button>
+            {{else}}
+            <a href="/login">Login</a>
+            {{/if}}
+
+           <a href="/">Homepage</a>
             <a href="/dashboard">Dashboard</a>
             <a href="/logout">Logout</a>
+            {{{ handlebars }}}
+
         </nav>
     </div>
 
-   {{#each blogPosts as |blogPost|}}
-    <div class="blogpost-card"> 
+    {{#each blogPosts as |blogPost|}}
+    <div class="blogpost-card">
 
         <div class="title">
-        {{blogPost.title}}
+            {{blogPost.title}}
         </div>
 
         <div class="content">
-        {{blogPost.content}}
+            {{blogPost.content}}
         </div>
 
         <div class="date">
-        {{blogPost.date_created}}
+            {{blogPost.date_created}}
         </div>
     </div>
     {{/each}}

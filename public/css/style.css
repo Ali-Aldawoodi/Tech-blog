@@ -1,7 +1,6 @@
 * {
     background-color: lightblue;
 }
-
 .blogpost-card {
     border: solid;
     margin: 5%;
@@ -16,7 +15,7 @@
 }
 
 .date {
+    margin-top: 2%;
     color: blue;
     text-decoration: overline;
-    padding-top: 2%;
 }

@@ -66,11 +66,17 @@ router.get('/blogpost',  withAuth, async (req, res) => {
     }
 }); 
 
-console.log('/blogpost')
+router.get('/dashboard', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/login')
+        return;
+    }
+    res.render('dashboard');
+})
 
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/profile');
+        res.redirect('/dashboard');
         return;
     }
 
