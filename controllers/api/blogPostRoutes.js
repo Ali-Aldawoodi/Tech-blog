@@ -2,12 +2,13 @@ const router = require('express').Router();
 const { BlogPost } = require('../../models');
 const withAuth = require('../../utils/withAuth');
 
-router.get('/blogpost', (req, res) => {
+console.log('here')
+router.get('/createBlogPost', (req, res) => {
     // if (req.session.logged_in) {
     //     res.redirect('/login')
     //     return;
     // }
-    res.render('dashboard');
+    res.render('createBlogPost');
 })
 
 router.post('/', withAuth,  async (req, res) => {

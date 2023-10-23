@@ -24,7 +24,7 @@ router.get('/blogpost/:id', withAuth, async (req, res) => {
         
         const blogpost = blogPostData.get({ plain: true });
 
-        res.render('blogpost', {
+        res.render('homepage', {
             ...blogpost,
             logged_in: req.session.logged_in
         });
@@ -78,7 +78,7 @@ router.delete('/blogpost/:id', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/homepage');
+        res.redirect('/');
         return;
     }
 

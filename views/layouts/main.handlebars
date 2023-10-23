@@ -12,6 +12,31 @@
 <body>
     <main class="container container-fluid mt-5">
       
+       <div>
+        <nav>
+           
+            {{#if logged_in}}
+           
+
+            <button class="no-button" id="logout">logout</button>
+
+              <button>
+            <a href="/api/blogpost/createBlogPost">Create a blogpost</a>
+            </button>
+           
+            {{else}}
+          
+            <button class="button-hide">
+                <a href="/login" >Login</a>
+            </button>
+            {{/if}}
+            {{!-- <button>
+            <a href="/">Homepage</a>
+            </button> --}}
+            
+
+        </nav>
+    </div>
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>

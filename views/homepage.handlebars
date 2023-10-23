@@ -1,26 +1,6 @@
-<div>
-    <div>
-        <nav>
-            {{#if logged_in}}
-            <button>
-            <a href="/">Homepage</a>
-            </button>
-            <button class="no-button" id="logout">logout</button>
-            {{else}}
-            <button>
-                <a href="/login">Login</a>
-            </button>
-            {{/if}}
-            {{!-- <button>
-            <a href="/">Homepage</a>
-            </button> --}}
-            <button>
-            <a href="/api/blogpost">Create a blogpost</a>
-            </button>
-           
 
-        </nav>
-    </div>
+<div>
+   
 
     {{#each blogPosts as |blogPost|}}
     <div class="blogpost-card">
