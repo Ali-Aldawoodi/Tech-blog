@@ -2,16 +2,22 @@
     <div>
         <nav>
             {{#if logged_in}}
+            <button>
             <a href="/">Homepage</a>
+            </button>
             <button class="no-button" id="logout">logout</button>
             {{else}}
-            <a href="/login">Login</a>
+            <button>
+                <a href="/login">Login</a>
+            </button>
             {{/if}}
-
-           <a href="/">Homepage</a>
-            <a href="/dashboard">Dashboard</a>
-            <a href="/logout">Logout</a>
-            {{{ handlebars }}}
+            {{!-- <button>
+            <a href="/">Homepage</a>
+            </button> --}}
+            <button>
+            <a href="/api/blogpost">Create a blogpost</a>
+            </button>
+           
 
         </nav>
     </div>
@@ -29,8 +35,11 @@
 
         <div class="date">
             {{blogPost.date_created}}
+            <button  class="delete"  data-id="{{blogPost.id}}">DELETE</button>
         </div>
     </div>
     {{/each}}
 
 </div>
+
+<script src="./js/homepage.js"></script>

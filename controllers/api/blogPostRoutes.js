@@ -2,6 +2,14 @@ const router = require('express').Router();
 const { BlogPost } = require('../../models');
 const withAuth = require('../../utils/withAuth');
 
+router.get('/blogpost', (req, res) => {
+    // if (req.session.logged_in) {
+    //     res.redirect('/login')
+    //     return;
+    // }
+    res.render('dashboard');
+})
+
 router.post('/', withAuth,  async (req, res) => {
     try {
         const newBlogPost = await BlogPost.create({
@@ -17,25 +25,5 @@ router.post('/', withAuth,  async (req, res) => {
 });
 
 
-
-router.delete('/:id', withAuth, async (req, res) => {
-    try {
-        const blogPostData = await BlogPost.destroy({
-            where: {
-                id: req.params.id,
-                user_id: req.session,
-            },
-        });
-
-        if (!blogPostData) {
-            res.status(404).json({ message: 'No blog post found !'});
-            return;
-        }
-
-        res.status(200).json(blogPostData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
 
 module.exports = router;
