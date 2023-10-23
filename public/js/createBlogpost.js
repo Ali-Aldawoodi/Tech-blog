@@ -1,21 +1,21 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#blogpost-name').value.trim();
-    const needed_funding = document.querySelector('#blogpost-funding').value.trim();
-    const description = document.querySelector('#blogpost-desc').value.trim();
-  
-    if (name && needed_funding && description) {
-      const response = await fetch(`/api/blogpost/createBlogPost`, {
+    const name = document.querySelector('#blogPost-name').value.trim();
+    const description = document.querySelector('#blogPost-desc').value.trim();
+  console.log('here')
+    if (name && description) {
+      const response = await fetch(`/create`, {
         method: 'POST',
-        body: JSON.stringify({ name, needed_funding, description }),
+        body: JSON.stringify({ name, description }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
+      
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/');
       } else {
         alert('Failed to create blogpost');
       }
@@ -23,5 +23,5 @@ const newFormHandler = async (event) => {
   };
 
   document
-  .querySelector('.new-blogpost-form')
+  .querySelector('.new-blogPost-form')
   .addEventListener('submit', newFormHandler);

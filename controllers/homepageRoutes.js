@@ -17,6 +17,15 @@ router.get('/', async (req, res) => {
     }
 });
 
+console.log('here')
+router.get('/create', (req, res) => {
+    // if (req.session.logged_in) {
+    //     res.redirect('/login')
+    //     return;
+    // }
+    res.render('createBlogPost');
+})
+
 
 router.get('/blogpost/:id', withAuth, async (req, res) => {
     try {
