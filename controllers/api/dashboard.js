@@ -6,7 +6,7 @@
 
 
 const router = require('express').Router();
-const { BlogPost, User } = require('../../models');
+const { BlogPost } = require('../../models');
 const withAuth = require('../../utils/withAuth');
 
 //localhost:3001/api/dashboard
@@ -19,16 +19,19 @@ const withAuth = require('../../utils/withAuth');
 //     }
 // });
 
-router.get('/', async(req, res) => {
+// localhost:3001/api/dashboard
+router.get('/', withAuth, async(req, res) => {
     try {
-        const blogPostData = await BlogPost.findAll(req.params.id, {
-           attributes:'user_id',
+        const blogPostData = await BlogPost.findAll({
+            where: {
+                user_id: req.session.user_id
+            }
         });
-
-        const blogPost = blogPostData.get({ plain: true });
-
+        // console.log(req.session)
+        const blogPost = blogPostData.map((blog)=> blog.get({ plain: true }));
+console.log(blogPost)
         res.render('dashboard', {
-            ...blogPost,
+            blogPost,
             logged_in: req.session.logged_in
         });
     } catch (err) {
