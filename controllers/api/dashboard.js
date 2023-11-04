@@ -9,27 +9,16 @@ const router = require('express').Router();
 const { BlogPost } = require('../../models');
 const withAuth = require('../../utils/withAuth');
 
-//localhost:3001/api/dashboard
 
-// router.get('/', (req, res) => {
-//     try {
-//         res.render('dashboard')
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
-// localhost:3001/api/dashboard
-router.get('/', withAuth, async(req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const blogPostData = await BlogPost.findAll({
             where: {
                 user_id: req.session.user_id
             }
         });
-        // console.log(req.session)
-        const blogPost = blogPostData.map((blog)=> blog.get({ plain: true }));
-console.log(blogPost)
+        const blogPost = blogPostData.map((blog) => blog.get({ plain: true }));
+        console.log(blogPost)
         res.render('dashboard', {
             blogPost,
             logged_in: req.session.logged_in
@@ -39,37 +28,18 @@ console.log(blogPost)
     }
 });
 
-// router.get('/dashboard/:id', async (req, res) => {
-//     try {
-//         const blogPostData = await BlogPost.findByPk(req.params.id, {
-//             include: [
-//                 {
-//                     model: User,
-//                     attributes: ['name'],
-//                 },
-//             ],
-//         });
-
-//         const blogPost = blogPostData.get({ plain: true });
-
-//         res.render('dashboard', {
-//             ...blogPost,
-//             logged_in: req.session.logged_in
-//         });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// })
-
-router.post('/', withAuth, async (req, res) => {
+router.post('/:id', withAuth, async (req, res) => {
 
     try {
         const newBlogPost = await BlogPost.create({
-            ...req.body,
-            user_id: req.session.user_id,
+            where: {
+                id: req.params.id,
+                title: req.body.title,
+                content: req.body.content,
+                user_id: req.session.user_id,
+            },
         });
-        // const newBlogPost = await BlogPost.create(req.body)
-
+        console.log(newBlogPost)
         res.status(200).json(newBlogPost);
     } catch (err) {
         res.status(400).json(err);
