@@ -31,10 +31,10 @@ BlogPost.init(
                 key: 'id',
             },
         },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+        // name: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
         date_created: {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW,

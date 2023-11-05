@@ -28,16 +28,13 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-router.post('/:id', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
 
     try {
         const newBlogPost = await BlogPost.create({
-            where: {
-                id: req.params.id,
                 title: req.body.title,
                 content: req.body.content,
                 user_id: req.session.user_id,
-            },
         });
         console.log(newBlogPost)
         res.status(200).json(newBlogPost);
