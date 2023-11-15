@@ -1,6 +1,5 @@
-
 <div>
-   
+
 
     {{#each blogPosts as |blogPost|}}
     <div class="blogpost-card">
@@ -15,10 +14,20 @@
 
         <div class="date">
             {{blogPost.date_created}}
-            <button  class="delete"  data-id="{{blogPost.id}}">DELETE</button>
+            <button class="delete" data-id="{{blogPost.id}}">DELETE</button>
         </div>
     </div>
     {{/each}}
+
+
+    <div>
+        {{#each comment as |comment|}}
+        <button class="comment-content">
+            Comment
+        </button>
+        {{comment.content}}
+        {{/each}}
+    </div>
 
 </div>
 

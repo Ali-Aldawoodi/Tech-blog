@@ -3,6 +3,7 @@ const sequelize = require('../configure/connection');
 
 class Comment extends Model { }
 
+// make associations
 Comment.init (
     {
         id: {
