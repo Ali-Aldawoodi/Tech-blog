@@ -8,18 +8,9 @@ router.get('/', async (req, res) => {
         const blogPostData = await BlogPost.findAll();
 
         const blogPosts = blogPostData.map((blogPost) => blogPost.get({ plain: true }));
-    console.log(blogPosts)
-    const commentData = await Comment.findAll({
-        // where: {
-        //     user_id: req.session.user_id
-        // }
-    });
-    // console.log(commentData)
-    const comment = commentData.map((commentPost) => commentPost.get({ plain: true }));
-   console.log(comment)
+    // console.log(commentData)    
         res.render('homepage', {
             blogPosts,
-            comment,
             logged_in: req.session.logged_in
         });
     } catch (err) {
@@ -64,9 +55,9 @@ router.get('/comment', withAuth, async (req, res) => {
     try {
         
         const commentData = await Comment.findAll({
-            // where: {
-            //     user_id: req.session.user_id
-            // }
+            where: {
+                user_id: req.session.user_id
+            }
         });
         console.log(commentData)
         const comment = commentData.map((commentPost) => commentPost.get({ plain: true }));
