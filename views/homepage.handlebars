@@ -14,21 +14,20 @@
 
         <div class="date">
             {{blogPost.date_created}}
-            
+            <button class="delete" data-id="{{blogPost.id}}">DELETE</button>
         </div>
-        <button class="delete" data-id="{{blogPost.id}}">DELETE</button>
     </div>
     {{/each}}
 
 
-    {{!-- <div>
+    <div>
         {{#each comment as |comment|}}
         <button class="comment-content">
             Comment
         </button>
         {{comment.content}}
         {{/each}}
-    </div> --}}
+    </div>
 
 </div>
 
